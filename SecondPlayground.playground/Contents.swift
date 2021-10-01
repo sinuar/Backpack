@@ -37,7 +37,7 @@ print(pointOne.y)
 print(pointTwo.y)
 */
 
-enum SocialPlatform: String {
+/*enum SocialPlatform: String {
     case facebook
     case twitter = "Log in"
     case instagram = "Bienvenido"
@@ -55,4 +55,80 @@ func platMessage(on platform: SocialPlatform) {
 }
 
 platMessage(on: .twitter)
+*/
+
+// MARK: - OTRA CLASS
+
+class MainClassReloj {
+    
+    //ENUMERACIÓN
+    
+    enum CajaSize{
+        case small
+        case medium
+        case big
+    }
+    
+    //PROPIEDADES
+    var marca: String
+    var precio: Int
+    var digital: Bool
+    var CajaSize: MainClassReloj.CajaSize
+    
+    //INICIALIZACIÓN
+    
+    init (marca: String, precio: Int, digital: Bool, CajaSize: MainClassReloj.CajaSize){
+        self.marca = marca
+        self.precio = precio
+        self.digital = digital
+        self.CajaSize = CajaSize
+    }
+    
+    //HAY 2 TIPOS DE MÉTODOS: MÉTODOS DE INSTANCIA Y MÉTODOS DE CLASE
+    //ESTE ES UN MÉTODO DE INSTANCIA
+    
+    func muestraValores(){
+        
+    //IMPLEMENTACIÓN DEL MÉTODO. FUNCIÓN QUE AQUÍ ES MÉTODO
+        
+        print("Este reloj es de la marca \(marca)")
+    }
+    
+    //  MÉTODO DE CLASE
+
+    class func muestraAutor () -> String{
+    //    IMPLEMENTACIÓN DE LA FUNCIÓN O MÉTODO
+        
+        return("El autor es Sinuhé")
+    }
+}
+
+// VARIABLE DE INSTANCIA A LA CLASE MAINCLASSRELOJ
+
+var miReloj: MainClassReloj = MainClassReloj(marca: "Apple", precio: 2000, digital: true, CajaSize: .medium)
+
+print("Mi reloj es \(miReloj.marca) que cuesta \(miReloj.precio) Digital: \(miReloj.digital) ")
+
+var suReloj: MainClassReloj = MainClassReloj(marca: "Timex", precio: 1500, digital: false, CajaSize: .small)
+
+print("Su reloj es \(suReloj.marca) que cuesta \(suReloj.precio) Digital: \(suReloj.digital) ")
+
+//CREAMOS AHORA UNA SUBCLASE DE LA CLASE PADRE MAINCLASSRELOJ
+
+class RelojDePulsera: MainClassReloj{
+    var tipoCorrea: String
+    var color: String
+    
+    init (marca: String, precio: Int, digital: Bool, tipoCorrea: String, color: String){
+        self.tipoCorrea = tipoCorrea
+        self.color = color
+        
+        super.init(marca: marca, precio: precio, digital: digital, CajaSize: .medium)
+    }
+}
+var MiRelojDePulsera: RelojDePulsera = RelojDePulsera(marca: "Oropel", precio: 850, digital: false, tipoCorrea: "piel", color: "negro")
+
+miReloj.muestraValores()
+
+MainClassReloj.muestraAutor()
 
