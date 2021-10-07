@@ -7,13 +7,30 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, ViewControllerProtocol {
+    
 
+//MARK: PROTOCOL PROPERTIES
+    var inputData: [String]?
+    
+//MARK: PRIVATE PROPERTIES
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        inputData = provideData()
+        order(data: inputData ?? [])
     }
 
+//MARK: PROTOCOL METHODS
 
+    func order(data: [String]) -> [String] {
+        var newData: [String] = data
+        return newData.sorted()
+    }
+
+//MARK: PRIVATE METHODS
+    private func provideData() -> [String] {
+        return ["Ana", "Leonardo", "George", "Maria"]
+    }
 }
+
 
