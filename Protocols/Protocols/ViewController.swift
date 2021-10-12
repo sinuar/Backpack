@@ -29,7 +29,7 @@ class ViewController: UIViewController, ViewControllerProtocol {
 
 //MARK: PRIVATE METHODS
     private func provideData() -> [String] {
-        return ["Ana", "Leonardo", "George", "Maria", "José"]
+        return ["Ana", "Leonardo", "George", "Maria", "José", "Alejandro"]
     }
 }
 
