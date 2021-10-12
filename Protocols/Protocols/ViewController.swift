@@ -17,13 +17,13 @@ class ViewController: UIViewController, ViewControllerProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         inputData = provideData()
-        order(data: inputData ?? [])
+        _ = order(data: inputData ?? [])
     }
 
 //MARK: PROTOCOL METHODS
 
     func order(data: [String]) -> [String] {
-        var newData: [String] = data
+        let newData: [String] = data
         return newData.sorted()
     }
 
